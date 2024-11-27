@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th=http://www.thymeleaf.org>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+</head>
+<body>
+	<!-- Cabecera -->
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<a class="navbar-brand" href="#">agregar nuevo registro</a>
+		<!-- NavBar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/api/tiendas/registrar}">agregar nuevo registro</a></li>
+			</ul>
+		</div>
+
+
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div
+				class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h2 class="text-center">Registrar Nueva Tienda</h2>
+				<div class="card-body">
+					<form th:action="@{/api/tiendas/registrarNuevo}" th:object="${tienda}"
+						method="POST">
+						<div class="form-group">
+							<label>Nombre :</label> <input type="text" name="nombre"
+								th:field="*{nombre}" class="form-control"
+								placeholder="Nombre Tienda : " required="required">
+						</div>
+						<div class="form-group">
+							<label>Ubicacion Zona :</label> <input type="text" name="zona"
+								th:field="*{zona}" class="form-control"
+								placeholder="Ubicacion Zona : " required="required">
+						</div>
+						<div class="form-group">
+							<label>Direccion :</label> <input type="text" name="direccion"
+								th:field="*{direccion}" class="form-control"
+								placeholder="Direccion : " required="required">
+						</div>
+						<div class="form-group">
+							<label>Telefono :</label> <input type="text" name="telefono"
+								th:field="*{telefono}" class="form-control"
+								placeholder="Telefono : " required="required">
+						</div>
+						<div class="box-footer">
+						<div class="d-flex justify-content-between">
+							<button class="btn btn-success w-30" type="submit">Registrar</button>
+							<a th:href="@{/api/tiendas/listar}" class="btn btn-primary w-30">Volver</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

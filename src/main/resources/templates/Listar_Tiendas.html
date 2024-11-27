@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaft.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<!-- Cabecera -->
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<a class="navbar-brand" href="#">Control de tiendas</a>
+
+		<!-- Botón para colapsar en pantallas pequeñas -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsibleNavbar" aria-controls="collapsibleNavbar"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- NavBar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/api/tiendas/registrar}">Agregar Tienda </a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<h3>Lista de tiendas</h3>
+		</div>
+
+	<!--  	<div class="col-lg-3">
+			<a th:href="@{/api/tiendas/registrar}" class="btn btn-primary">Agregar
+				Nuevo</a>
+		</div>
+		<br> <br>
+-->
+
+		<!-- Parte de la tabla -->
+		<table class="table table-striped table-bordered">
+			<thead class="table table-dark">
+				<tr>
+					<th>Nombre</th>
+					<th>Ubicacion Zona</th>
+					<th>Direccion</th>
+					<th>Telefono</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="tienda : ${tiendas}">
+					<td th:text="${tienda.nombre}"></td>
+					<td th:text="${tienda.zona}"></td>
+					<td th:text="${tienda.direccion}"></td>
+					<td th:text="${tienda.telefono}">
+					<td><a class="btn btn-warning" type="submit">Editar</a> <a
+						class="btn btn-danger" type="submit">Eliminar</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
