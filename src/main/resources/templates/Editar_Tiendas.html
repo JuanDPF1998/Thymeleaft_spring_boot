@@ -14,13 +14,36 @@
 			<div
 				class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
 				<h2 class="text-center">Editar Registro</h2>
-				
+
 				<div class="card-body">
-				
+					<form th:action="@{/api/tiendas/actualizar/{id}(id=${tienda.id})}" th:object="${tienda}" method="POST">
+						<div class="form-group">
+							<label>Nombre :</label> <input type="text" name="nombre"
+								th:field="*{nombre}" class="form-control"
+								placeholder="Nombre establecimiento :" required="required">
+						</div>
+						<div class="form-group">
+							<label>Zona :</label> <input type="text" name="zona"
+								th:field="*{zona}" class="form-control"
+								placeholder="Zona establecimiento :" required="required">
+						</div>
+						<div class="form-group">
+							<label>Direccion :</label> <input type="text" name="direccion"
+								th:field="*{direccion}" class="form-control"
+								placeholder="Direccion establecimiento :" required="required">
+						</div>
+						<div class="form-group">
+							<label>Telefono :</label> <input type="text" name="telefono"
+								th:field="*{telefono}" class="form-control"
+								placeholder="Telefono establecimiento: " required="required">
+						</div>
+						<div class="box-footer">
+							<button class="btn btn-primary" type="submit">Guardar</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

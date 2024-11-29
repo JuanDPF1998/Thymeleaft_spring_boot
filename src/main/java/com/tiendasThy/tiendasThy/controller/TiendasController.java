@@ -1,8 +1,5 @@
 package com.tiendasThy.tiendasThy.controller;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tiendasThy.tiendasThy.model.Tiendas;
@@ -47,6 +45,20 @@ public class TiendasController {
 	public String formularioEditar(@PathVariable Long id, Model model)
 	{
 		model.addAttribute("tienda", service.obtenerPorId(id));
-		return "redirect:/Editar_Tiendas";
+		return "Editar_Tiendas";
+	}
+	//ACCION METODO ACTUALIZAR
+	@PostMapping("/actualizar/{id}")
+	public String actualizarRegistro(@PathVariable Long id, @ModelAttribute("tienda") Tiendas tiendas, Model model)
+	{
+		Tiendas existe = service.obtenerPorId(id);
+		existe.setId(id);
+		existe.setNombre(tiendas.getNombre());
+		existe.setZona(tiendas.getZona());
+		existe.setDireccion(tiendas.getDireccion());
+		existe.setTelefono(tiendas.getTelefono());
+		
+		service.agregar(existe);
+		return "redirect:/api/tiendas/listar";
 	}
 }

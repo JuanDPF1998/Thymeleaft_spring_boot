@@ -58,8 +58,10 @@
 					<td th:text="${tienda.zona}"></td>
 					<td th:text="${tienda.direccion}"></td>
 					<td th:text="${tienda.telefono}">
-					<td><a class="btn btn-warning" type="submit">Editar</a> <a
-						class="btn btn-danger" type="submit">Eliminar</a></td>
+					<td>
+					<a th:href="@{/api/tiendas/editar/{id}(id=${tienda.id})}" class="btn btn-warning" type="submit">Editar</a> 
+					<a class="btn btn-danger" type="submit">Eliminar</a>
+					</td>
 				</tr>
 			</tbody>
 		</table>
