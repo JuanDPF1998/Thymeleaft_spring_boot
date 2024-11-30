@@ -11,12 +11,12 @@
 <body>
 	<!-- Cabecera -->
 	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-		<a class="navbar-brand" href="#">agregar nuevo registro</a>
+		<a class="navbar-brand" href="#">Agregar nuevo registro</a>
 		<!-- NavBar links -->
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link"
-					th:href="@{/api/tiendas/registrar}">agregar nuevo registro</a></li>
+					th:href="@{/api/tiendas/listar}">Inicio</a></li>
 			</ul>
 		</div>
 
@@ -33,26 +33,26 @@
 						<div class="form-group">
 							<label>Nombre :</label> <input type="text" name="nombre"
 								th:field="*{nombre}" class="form-control"
-								placeholder="Nombre Tienda : " required="required">
+								placeholder="Dale un nombre a la tienda" required="required">
 						</div>
 						<div class="form-group">
 							<label>Ubicacion Zona :</label> <input type="text" name="zona"
 								th:field="*{zona}" class="form-control"
-								placeholder="Ubicacion Zona : " required="required">
+								placeholder="Ubicacion Zona" required="required">
 						</div>
 						<div class="form-group">
 							<label>Direccion :</label> <input type="text" name="direccion"
 								th:field="*{direccion}" class="form-control"
-								placeholder="Direccion : " required="required">
+								placeholder="Direccion" required="required">
 						</div>
 						<div class="form-group">
 							<label>Telefono :</label> <input type="text" name="telefono"
 								th:field="*{telefono}" class="form-control"
-								placeholder="Telefono : " required="required">
+								placeholder="Telefono" required="required">
 						</div>
 						<div class="box-footer">
 						<div class="d-flex justify-content-between">
-							<button class="btn btn-success w-30" type="submit">Registrar</button>
+							<button class="btn btn-success w-30" type="submit">Guardar</button>
 							<a th:href="@{/api/tiendas/listar}" class="btn btn-primary w-30">Volver</a>
 							</div>
 						</div>
